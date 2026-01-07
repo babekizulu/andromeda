@@ -1,0 +1,9 @@
+function Tray() {
+    return (
+        <div>
+            Tray
+        </div>
+    );
+};
+
+export default Tray;

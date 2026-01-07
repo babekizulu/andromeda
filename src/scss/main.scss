@@ -1,0 +1,27 @@
+//imports
+@import 'utils';
+
+*::before, *::after, * {
+    @include reset;
+}
+
+body {
+    @include wh100;
+    background-color: $dark;
+    color: $light;
+    font-family: $int;
+}
+
+.app {
+    @include wh100;
+    @include grid1;
+}
+
+@import 'Header';
+@import 'Help';
+@import 'Monitor';
+@import 'Page';
+@import 'Profile';
+@import 'Settings';
+@import 'Sidebar';
+@import 'Tray';
