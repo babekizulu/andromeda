@@ -1,5 +1,60 @@
 //mixins
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin wh100 {
+    width: 100%;
+    height: 100%;
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@mixin grid1 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@mixin grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+@mixin grid3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@mixin grid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 //fonts
 //colors
+$dark: #131313;
+$light: #fff;
 //transitions
 //breakpoints

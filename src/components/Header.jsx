@@ -1,8 +1,11 @@
+//components
+import Logo from "./Logo";
+
 function Header() {
     return (
-        <div>
-            Header
-        </div>
+        <header className='header'>
+            <Logo/>
+        </header>
     )
 }
 

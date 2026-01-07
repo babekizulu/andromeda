@@ -7,9 +7,6 @@
 
 body {
     @include wh100;
-    background-color: $dark;
-    color: $light;
-    font-family: $int;
 }
 
 .app {
@@ -19,7 +16,7 @@ body {
 
 @import 'Header';
 @import 'Help';
-@import 'Monitor';
+@import 'Monitors';
 @import 'Page';
 @import 'Profile';
 @import 'Settings';

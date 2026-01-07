@@ -1,8 +1,11 @@
+//components
+import Link from './Link';
+
 function Logo() {
     return (
-        <div>
-            Logo
-        </div>
+        <Link href='/' className='logo'>
+            Andromeda
+        </Link>
     );
 };
 
