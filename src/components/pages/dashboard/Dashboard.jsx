@@ -1,115 +1,43 @@
-//components
+//libs
 import { useState } from "react";
+//components
+import DataTitle from "./DataTitle";
+import Data from "./Data";
+import ExploreBtn from "../../buttons/ExploreBtn";
+import AnalyticsCard from "./AnalyticsCard";
+import WelcomeMsg from "./WelcomeMsg";
+import DashboardVisualAnalytics from "./DashboardVisualAnalytics";
 
 function Dashboard() {
+    //state management
     //eslint-disable-next-line
     const [userName, setUserName] = useState('Bob');
+    //eslint-disable-next-line
+    const [welcomeMsg, setWelcomeMsg] = useState(`Welcome back, ${userName}!`)
+    const [toggleData, setToggleData] = useState(false);
+    //variables
+    const dataTitleArr = [
+        'Service Delivery & Infrastructure Performance',
+        'Financial Health & Governance',
+        'Administrative Efficiency',
+        'Economic Enablement & Local Growth',
+        'Social & Human Outcomes',
+        'Transparency, Trust & Civic Engagement',
+        'Sustainability & Resilience',
+        'Composite Indices'
+    ]
+    //handlers
+    const handleToggleData = () => {
+        setToggleData(!toggleData);
+    }
+     //array mappings
+     const renderedAnalyticsCards = dataTitleArr.map((t,i) => {
+        return <AnalyticsCard dataTitle={t} toggleData={toggleData} handleToggleData={handleToggleData} key={i}/>
+    })
     return (
         <section className='page dashboard'>
-            <div className='welcome-msg-container'>
-                <h1>Welcome back, {userName}!</h1>
-            </div>
-            <div className='municipal-analytics-overview-container'>
-                <div className='dashboard-heading-container'>
-                    <h2>Municipal Analytics Overview</h2>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Service Delivery & Infrastructure Performance</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Financial Health & Governance</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Administrative Efficiency</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Economic Enablement & Local Growth</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Social & Human Outcomes</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Transparency, Trust & Civic Engagement</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Sustainability & Resilience</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className='municipal-analytics-overview'>
-                    <div className='municipal-analytics-data'>
-                        <div className='data-title'>
-                            <h3>Composite Indices</h3>
-                        </div>
-                        <div className='explore-data-btn-container'>
-                            <button className='explore-data-btn'>
-                                Explore Data
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <WelcomeMsg welcomeMsg={welcomeMsg}/>
+            <DashboardVisualAnalytics dashboardHeading='Municipal Analytics Overview' renderedAnalyticsCards={renderedAnalyticsCards}/>
         </section>
     )
 }
